@@ -31,7 +31,7 @@
 
 <script>
 export default {
-  name: "CustomizeSetter",
+  name: "SurfaceSetter",
   data() {
     return {
         selectedWatchElement: 'FRAME',

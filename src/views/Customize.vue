@@ -19,17 +19,17 @@
         </div>
         <div class="raka-customize-body__main">
           <template v-if="selectedFeature === 'SURFACE'">
-            <CustomizeSetter
-                ref="customizeSetter" />
+            <SurfaceSetter
+                ref="surfaceSetter" />
           </template>
           <template v-else-if="selectedFeature === 'FUNCTION'">
-            FUNCTION
+            <FunctionSetter />
           </template>
           <template v-else-if="selectedFeature === 'INK'">
-            INK
+            <InkSetter />
           </template>
           <template v-else-if="selectedFeature === 'PACKAGE'">
-            PACKAGE
+            <PackageSetter />
           </template>
       </div>
     </div>
@@ -53,11 +53,18 @@
 </template>
 
 <script>
-import CustomizeSetter from "@/components/customize/CustomizeSetter.vue";
+import SurfaceSetter from "@/components/customize/SurfaceSetter.vue";
+import FunctionSetter from "@/components/customize/FunctionSetter.vue";
+import InkSetter from "@/components/customize/InkSetter.vue";
+import PackageSetter from "@/components/customize/PackageSetter.vue";
+
 export default {
   name: "TheCustomizePage",
   components: {
-      CustomizeSetter,
+      SurfaceSetter,
+      FunctionSetter,
+      InkSetter,
+      PackageSetter,
   },
   data() {
       return {
@@ -70,7 +77,7 @@ export default {
       saveSettings() {
         const myWatchSettings = {
           title: this.myWatchTitle,
-          ...this.$refs.customizeSetter.myCustomWatch
+          ...this.$refs.surfaceSetter.myCustomWatch
         };
           console.log('myWatch', myWatchSettings);
 
